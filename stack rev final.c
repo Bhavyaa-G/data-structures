@@ -5,22 +5,6 @@ int top2=-1;
 int top=-1;
 int top1;
 
-void Reverse()
-{
-    if (top2==x-1) 
-        return;
-    
-    else if(top1==0){
-        auxstack[++top2]=stack[top1];
-    } 
-    
-    else{
-        auxstack[++top2]=stack[top1];
-        top1--;
-    }
-    Reverse();
-}
-
 void push()
 {
     if(top>=n-1){
@@ -50,20 +34,21 @@ int pop()
     }
 }
 
-void display2()
+void Reverse()
 {
-    if(top2>=0)
-    {
-        printf("\n The elements in STACK \n");
-        for(i=top2; i>=0; i--)
-            printf("\n%d",auxstack[i]);
-        printf("\n Press Next Choice");
+    if (top2==x-1) //base condition
+        return;
+    
+    else if(top1==0){
+        stack2[++top2]=stack2[top1];
+    } 
+    
+    else{
+        stack2[++top2]=stack[top1];
+        top1--;
     }
-    else
-    {
-        printf("\n The STACK is empty");
-    }
-}  
+    Reverse(); //recursion
+}
 
 void display()
 {
@@ -77,6 +62,21 @@ void display()
     else
         printf("\n The STACK is empty");
 }
+
+void display2()
+{
+    if(top2>=0)
+    {
+        printf("\n The elements in STACK \n");
+        for(i=top2; i>=0; i--)
+            printf("\n%d",stack2[i]);
+        printf("\n Press Next Choice");
+    }
+    else
+    {
+        printf("\n The STACK is empty");
+    }
+}  
 
 int main()
 {
