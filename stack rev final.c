@@ -1,22 +1,22 @@
 #include<stdio.h>
 #include <stdlib.h>
-int stack[100],auxstack[100],choice,n,x,i,popped;
+int stack[100],stack2[100],choice,n,x,i,popped;
 int top2=-1;
 int top=-1;
-int j;
+int top1;
 
 void Reverse()
 {
     if (top2==x-1) 
         return;
     
-    else if(j==0){
-        auxstack[++top2]=stack[j];
+    else if(top1==0){
+        auxstack[++top2]=stack[top1];
     } 
     
     else{
-        auxstack[++top2]=stack[j];
-        j--;
+        auxstack[++top2]=stack[top1];
+        top1--;
     }
     Reverse();
 }
@@ -32,7 +32,7 @@ void push()
         scanf("%d",&x);
         top++;
         stack[top]=x;
-        j=top;
+        top1=top;
     }
 }
 
@@ -97,7 +97,7 @@ int main()
         case 2:
             pop();
             printf("\n The element is popped");
-            printf("\n Press Next Choice \n");
+            printf("\n Press Choice 4 to Display\n");
             break;
         case 3:
             if(top<=-1)
@@ -106,7 +106,7 @@ int main()
             {
                 Reverse();
                 printf("\n The array is Reversed");
-                printf("\n Press Next Choice \n");
+                printf("\n Press Choice 5 to Display\n");
                 break;
             }
         case 4:
